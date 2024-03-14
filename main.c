@@ -32,7 +32,7 @@ void oledC_BitBangCommand(unsigned char cmd)
         DELAY_microseconds(1);
         LATBbits.LATB15 = 0;
         // 3. Set Data bit (MSB first)
-        bit = ((cmd >> (7 - i)) & 0b1) ? 1 : 0;
+        bit = (cmd >> (7 - i)) & 0b1;
         LATBbits.LATB14 = bit;
         // 4. Wait for one microsecond and Raise Clock
         DELAY_microseconds(1);
